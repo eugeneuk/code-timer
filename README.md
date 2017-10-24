@@ -9,8 +9,8 @@ use Requtize\CodeTimer\CodeTimer;
 $timer = new CodeTimer;
 
 // Sets category color which is displayed on some timeline preview.
-$times->setCategoryColor('handle-request', 'green');
-$times->setCategoryColor('controller', 'red');
+$timer->setCategoryColor('handle-request', 'green');
+$timer->setCategoryColor('controller', 'red');
 
 
 // Starts and stops recording the request. Between those thow methods call
