@@ -13,8 +13,8 @@ $timer->setCategoryColor('handle-request', 'green');
 $timer->setCategoryColor('controller', 'red');
 
 
-// Starts and stops recording the request. Between those thow methods call
-// all rest methods should be called.
+// Starts and stops recording the request.
+// Between those thow methods call, all rest methods should be called.
 $timer->begin();
 $timer->end();
 
