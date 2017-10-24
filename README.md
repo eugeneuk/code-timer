@@ -14,7 +14,7 @@ $timer->setCategoryColor('controller', 'red');
 
 
 // Starts and stops recording the request.
-// Between those thow methods call, all rest methods should be called.
+// Between those two methods call, all rest methods should be called.
 $timer->begin();
 $timer->end();
 
