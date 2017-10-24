@@ -1,0 +1,21 @@
+{
+    "name": "requtize/code-timer",
+    "type": "library",
+    "description": "Simple PHP library to measuring code execution time with memory usage.",
+    "keywords": ["measuring","time","benchmark"],
+    "homepage": "https://github.com/requtize/code-timer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Banaszkiewicz",
+            "homepage": "http://adambanaszkiewicz.pl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~5.5 || ^7.0"
+    },
+    "autoload": {
+        "psr-4": {"Requtize\\CoreTimer\\": "src/CoreTimer/"}
+    }
+}
