@@ -75,7 +75,7 @@ $data = [
 
 ## TimeLine drawing - Preview
 
-Source data returned from this library can be used to draw the Time Line of execution. Please find dedicated JavaScript timeline drawer here: [requtize/timeline-drawer](https://github.com/requtize/timeline-drawer).
+Source data returned from this library can be used to draw the Time Line of execution. Please find dedicated JavaScript timeline drawer here: [requtize/timeline-drawer](https://github.com/requtize/timeline-drawer#requtizecode-timer-integration).
 
 # Licence
 
