@@ -16,9 +16,9 @@ namespace Requtize\CodeTimer;
 /**
  * @author Adam Banaszkiewicz https://github.com/requtize
  */
-class CodeTimer
+class Timer
 {
-    const CAT_DEF_COLOR = '#dedede';
+    const CAT_DEF_COLOR = '#888888';
 
     protected $sections = [];
     protected $stops = [];
@@ -31,14 +31,14 @@ class CodeTimer
 
     public function setCategoryColor($category, $color)
     {
-        $this->categories[$category]['color'] => $color;
+        $this->categories[$category]['color'] = $color;
 
         return $this;
     }
 
     public function getCategoryColor($category)
     {
-        return isset($this->categories[$category]['color']) : $this->categories[$category]['color'] : self::CAT_DEF_COLOR;
+        return isset($this->categories[$category]['color']) ? $this->categories[$category]['color'] : self::CAT_DEF_COLOR;
     }
 
     public function getCategories()
@@ -69,9 +69,10 @@ class CodeTimer
     public function openSection($name, $category = null)
     {
         $this->openedSections[$name] = [
+            'name'     => $name,
             'start'    => microtime(true) - $this->startTime,
             'duration' => null,
-            'memory'   => 17431234,
+            'memory'   => memory_get_peak_usage(true),
             'category' => $category,
             'category-color' => $this->getCategoryColor($category)
         ];
@@ -103,9 +104,10 @@ class CodeTimer
     public function start($name, $category = null)
     {
         $this->openedStops[$name] = [
-            'start'    => microtime(true) - $this->startTime,
+            'name'     => $name,
+            'start'    => round(microtime(true) - $this->startTime, 5),
             'duration' => null,
-            'memory'   => 17431234,
+            'memory'   => memory_get_peak_usage(true),
             'category' => $category,
             'category-color' => $this->getCategoryColor($category),
             'section'  => end($this->sectionsStack)
@@ -121,8 +123,10 @@ class CodeTimer
             throw new Exception("Cannot stop '{$name}', when is not started.");
         }
 
+
         $stop = $this->openedStops[$name];
-        $stop['duration'] = microtime(true) - $this->startTime - $stop['start'];
+
+        $stop['duration'] = round(microtime(true) - $this->startTime - $stop['start'], 5);
 
         $this->stops[] = $stop;
 
@@ -131,21 +135,21 @@ class CodeTimer
         return $this;
     }
 
-    public function exportArray()
+    public function exportToArray()
     {
         return [
             'total-time' => [
                 'start'    => $this->startTime,
                 'end'      => $this->endTime,
-                'duration' => $this->endTime - $this->startTime
+                'duration' => round($this->endTime - $this->startTime, 5)
             ],
-            'sections' => $this->sections
+            'sections' => $this->sections,
             'stops'    => $this->stops
         ];
     }
 
-    public function exportJson()
+    public function exportToJson()
     {
-        return json_encode($this->exportArray());
+        return json_encode($this->exportToArray());
     }
 }
