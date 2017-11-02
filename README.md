@@ -1,6 +1,11 @@
 # CodeTimer
 Simple PHP library to measuring code execution time with memory usage.
 
+## Installation - via composer.json
+```json
+"requtize/code-timer": "^0.1.0"
+```
+
 ## Usage
 
 ```php
