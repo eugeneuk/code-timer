@@ -16,7 +16,7 @@ namespace Requtize\CodeTimer;
 /**
  * @author Adam Banaszkiewicz https://github.com/requtize
  */
-class Timer
+class CodeTimer
 {
     const CAT_DEF_COLOR = '#888888';
 
