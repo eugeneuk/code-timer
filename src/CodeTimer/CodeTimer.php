@@ -13,6 +13,8 @@
 
 namespace Requtize\CodeTimer;
 
+use Exception;
+
 /**
  * @author Adam Banaszkiewicz https://github.com/requtize
  */
