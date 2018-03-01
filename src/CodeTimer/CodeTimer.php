@@ -57,10 +57,10 @@ class CodeTimer
 
     public function end()
     {
-        foreach($this->openedSections as $name)
+        foreach($this->openedSections as $name => $data)
             $this->closeSection($name);
 
-        foreach($this->openedStops as $name)
+        foreach($this->openedStops as $name => $data)
             $this->stop($name);
 
         $this->endTime = microtime(true);
