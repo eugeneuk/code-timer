@@ -16,6 +16,6 @@
         "php": "~5.5 || ^7.0 || ~8.0 || ^8.1"
     },
     "autoload": {
-        "psr-4": {"Eugeneuk\\CodeTimer\\": "src/CodeTimer/"}
+        "psr-4": {"Requtize\\CodeTimer\\": "src/CodeTimer/"}
     }
 }
